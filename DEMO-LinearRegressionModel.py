@@ -1,4 +1,11 @@
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @FileName     :test.py
+# @Project      :AI-Learning
+# @IDE          :PyCharm
+# @Time         :2022/4/14 19:46
+# @Author       :Frank Yang
+# @E-Mail       :whynotdance.franky@gmail.com
 
 import torch
 import torch.nn as nn
@@ -43,7 +50,6 @@ if __name__ == '__main__':
         # np.array转换成tensor——CPU
         # inputs = torch.from_numpy(x_train)
         # labels = torch.from_numpy(y_train)
-
         # np.array转换成tensor——GPU
         inputs = torch.from_numpy(x_train).to(device)
         labels = torch.from_numpy(y_train).to(device)
@@ -69,6 +75,6 @@ if __name__ == '__main__':
     # 预测模型 预测结果
     # predicted = model(torch.from_numpy(x_train).requires_grad_()).data.numpy()
 
-    #模型的保存与读取
+    # 模型的保存与读取
     torch.save(model.state_dict(), 'model.pkl')
     # model.load_state_dict(torch.load('model.pkl'))
