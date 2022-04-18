@@ -6,7 +6,7 @@ import math
 
 from logistic_regression import LogisticRegression
 
-data = pd.read_csv('../data/mnist-demo.csv')
+data = pd.read_csv('./data/mnist-demo.csv')
 
 # 绘图设置
 numbers_to_display = 25

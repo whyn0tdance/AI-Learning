@@ -17,21 +17,27 @@ class LogisticRegression:
 
         self.data = data_processed
         self.labels = labels
-        self.unique_labels = np.unique(labels)
-        self.features_mean = features_mean
-        self.features_deviation = features_deviation
-        self.polynomial_degree = polynomial_degree
-        self.sinusoid_degree = sinusoid_degree
+        self.unique_labels = np.unique(labels)  # 得到标签的数量
+        self.features_mean = features_mean  # 特征的均值
+        self.features_deviation = features_deviation    # 特征的均方差
+        self.polynomial_degree = polynomial_degree  # 多项式回归的复杂度
+        self.sinusoid_degree = sinusoid_degree  # 三角函数回归的复杂度
         self.normalize_data = normalize_data
 
-        num_features = self.data.shape[1]
-        num_unique_labels = np.unique(labels).shape[0]
+        """
+        np的ndarry格式数据 的shape: 
+            shape 返回此矩阵的长度，即shape[0]返回第一维的长度，shape[1]返回第二维的长度，
+            二维矩阵即shape[0]返回有多少行，shape[1] 返回有多少列
+        """
+
+        num_features = self.data.shape[1]   # 特征的种类
+        num_unique_labels = np.unique(labels).shape[0]  # 标签的数量
         self.theta = np.zeros((num_unique_labels, num_features))
 
     def train(self, max_iterations=1000):
-        cost_histories = []
+        cost_histories = []     # 损失记录
         num_features = self.data.shape[1]
-        for label_index, unique_label in enumerate(self.unique_labels):
+        for label_index, unique_label in enumerate(self.unique_labels):     # enumerate:枚举
             current_initial_theta = np.copy(self.theta[label_index].reshape(num_features, 1))
             current_lables = (self.labels == unique_label).astype(float)
             (current_theta, cost_history) = LogisticRegression.gradient_descent(self.data, current_lables,

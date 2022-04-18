@@ -5,7 +5,7 @@ import math
 
 from logistic_regression import LogisticRegression
 
-data = pd.read_csv('../data/microchips-tests.csv')
+data = pd.read_csv('./data/microchips-tests.csv')
 
 # 类别标签
 validities = [0, 1]

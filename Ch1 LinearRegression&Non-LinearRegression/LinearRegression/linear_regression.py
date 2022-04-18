@@ -17,8 +17,8 @@ class LinearRegression:
         self.labels = labels
         self.features_mean = features_mean
         self.features_deviation = features_deviation
-        self.polynomial_degree = polynomial_degree
-        self.sinusoid_degree = sinusoid_degree
+        self.polynomial_degree = polynomial_degree  # 多项式回归的复杂度（阶数）
+        self.sinusoid_degree = sinusoid_degree  # 三角函数回归的复杂度（阶数）
         self.normalize_data = normalize_data
         
         num_features = self.data.shape[1]   # 得到特征的维度
