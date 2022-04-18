@@ -4,7 +4,11 @@ import numpy as np
 
 
 def normalize(features):
-
+    """
+    标准化数据=（原数据-数据均值）/标准差
+    :param features: m*n矩阵
+    :return: features_normalized：标准化后的数据, features_mean：数据均值, features_deviation：数据标准差
+    """
     features_normalized = np.copy(features).astype(float)
 
     # 计算均值

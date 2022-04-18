@@ -8,14 +8,13 @@ from .generate_polynomials import generate_polynomials
 
 def prepare_for_training(data, polynomial_degree=0, sinusoid_degree=0, normalize_data=True):
 
-    # 计算样本总数
-    num_examples = data.shape[0]
+    num_examples = data.shape[0]    # 计算样本总数
 
-    data_processed = np.copy(data)
+    data_processed = np.copy(data)  # 复制转换为ndarry格式
 
     # 预处理
-    features_mean = 0
-    features_deviation = 0
+    features_mean = 0   # features_mean：均值
+    features_deviation = 0  # features_deviation ： 标准差
     data_normalized = data_processed
     if normalize_data:
         (

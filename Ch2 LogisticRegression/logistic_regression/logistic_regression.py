@@ -19,7 +19,7 @@ class LogisticRegression:
         self.labels = labels
         self.unique_labels = np.unique(labels)  # 得到标签的数量
         self.features_mean = features_mean  # 特征的均值
-        self.features_deviation = features_deviation    # 特征的均方差
+        self.features_deviation = features_deviation  # 特征的均方差
         self.polynomial_degree = polynomial_degree  # 多项式回归的复杂度
         self.sinusoid_degree = sinusoid_degree  # 三角函数回归的复杂度
         self.normalize_data = normalize_data
@@ -30,14 +30,14 @@ class LogisticRegression:
             二维矩阵即shape[0]返回有多少行，shape[1] 返回有多少列
         """
 
-        num_features = self.data.shape[1]   # 特征的种类
+        num_features = self.data.shape[1]  # 特征的种类
         num_unique_labels = np.unique(labels).shape[0]  # 标签的数量
         self.theta = np.zeros((num_unique_labels, num_features))
 
     def train(self, max_iterations=1000):
-        cost_histories = []     # 损失记录
+        cost_histories = []  # 损失记录
         num_features = self.data.shape[1]
-        for label_index, unique_label in enumerate(self.unique_labels):     # enumerate:枚举
+        for label_index, unique_label in enumerate(self.unique_labels):  # enumerate:枚举
             current_initial_theta = np.copy(self.theta[label_index].reshape(num_features, 1))
             current_lables = (self.labels == unique_label).astype(float)
             (current_theta, cost_history) = LogisticRegression.gradient_descent(self.data, current_lables,
