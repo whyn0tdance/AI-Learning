@@ -7,7 +7,7 @@
 # @Author       :Frank Yang
 # @E-Mail       :whynotdance.franky@gmail.com
 """
-根据唐博士讲课以及sklearn工具包使用线性回归处理、预测数据
+根据唐博士讲课以及sklearn工具包使用线性回归处理、预测数据，一维特征输入
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 
 if __name__ == '__main__':
-    # 使用的数据路径
+    # 使用本地幸福报告数据路径
     dataset = pd.read_csv('./data/world-happiness-report-2017.csv')
 
     # 得到训练与测试数据
@@ -34,6 +34,7 @@ if __name__ == '__main__':
     x_test = test_data[input_feature_name].values
     y_test = test_data[output_lable_name].values
 
+    # 将训练集、测试集数据转化为2维矩阵（数组）
     x_train = x_train.reshape(x_train.shape[0], 1)
     y_train = y_train.reshape(y_train.shape[0], 1)
     x_test = x_test.reshape(x_test.shape[0], 1)
@@ -81,3 +82,5 @@ if __name__ == '__main__':
     plt.title('Relationship between ' + input_feature_name + ' ' + output_lable_name)
     plt.legend()
     plt.show()
+
+

@@ -22,13 +22,13 @@ y_test = test_data[output_param_name].values
 """
 画出训练集与测试集样本
 """
-# plt.scatter(x_train, y_train, label='Train data')
-# plt.scatter(x_test, y_test, label='Test data')
-# plt.xlabel(input_param_name)
-# plt.ylabel(output_param_name)
-# plt.title('Happy')
-# plt.legend()
-# plt.show()
+plt.scatter(x_train, y_train, label='Train data')
+plt.scatter(x_test, y_test, label='Test data')
+plt.xlabel(input_param_name)
+plt.ylabel(output_param_name)
+plt.title('Happy')
+plt.legend()
+plt.show()
 
 num_iterations = 5000  # 迭代次数
 learning_rate = 0.001  # 学习率
@@ -42,11 +42,11 @@ print('训练后的损失：', cost_history[-1])
 """
 画出迭代次数与损失
 """
-# plt.plot(range(num_iterations), cost_history)
-# plt.xlabel('Iter')
-# plt.ylabel('cost')
-# plt.title('GD')
-# plt.show()
+plt.plot(range(num_iterations), cost_history)
+plt.xlabel('Iter')
+plt.ylabel('cost')
+plt.title('GD')
+plt.show()
 
 predictions_num = 100
 x_predictions = np.linspace(x_train.min(), x_train.max(), predictions_num).reshape(predictions_num, 1)
